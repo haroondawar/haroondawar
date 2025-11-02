@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Talha made Game</title>
+  <style>
+   font-family: Arial, sans-serif;
+       body {
+      text-align: center;
+      padding: 2em;
+      background: linear-gradient(to right, #ff4e50, #f9d423);
+      color: #333;
+    }
+    input, button {
+      padding: 0.5em;
+      font-size: 1em;
+      margin-top: 1em;
+    }
+    #message {
+      margin-top: 1em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Number!</h1>
+  <p>I'm thinking of a number between 1 and 100.</p>
+  <input type="number" id="guess" placeholder="Enter your guess" />
+  <button onclick="checkGuess()">Submit</button>
+  <p id="message"></p>
+
+  <script>
+    const secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guess').value);
+      attempts++;
+      const message = document.getElementById('message');
+
+      if (guess === secretNumber) {
+        message.textContent = `🎉 Correct! You guessed it in ${attempts} tries.`;
+      } else if (guess < secretNumber) {
+        message.textContent = 'Too low! Try again.';
+      } else if (guess > secretNumber) {
+        message.textContent = 'Too high! Try again.';
+      } else {
+        message.textContent = 'Please enter a valid number.';
+      }
+    }
+  </script>
+</body>
+<nav style="background: #222; padding: 1em; text-align: center;">
+  <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
+  <a href="contact.html" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
+  <a href="about.html" style="color: white; margin: 0 15px; text-decoration: none;">About Me</a>
+  <a href="game.html" style="color: white; margin: 0 15px; text-decoration: none;">Play Game</a>
+</nav>
+
+</html>
